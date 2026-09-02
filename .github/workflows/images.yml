@@ -9,6 +9,10 @@ on:
       - master
     types: [opened, synchronize, closed]
 
+permissions:
+  contents: read
+  packages: write
+  
 jobs:
   docker-image-latest:
     runs-on: ubuntu-latest
