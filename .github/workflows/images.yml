@@ -46,7 +46,6 @@ jobs:
           context: .
           push: true
           target: ${{ matrix.target }}
-          provenance: false
           cache-from: type=local,src=cache
           tags: ghcr.io/${{ github.repository }}:${{ matrix.label }}
 
@@ -73,7 +72,6 @@ jobs:
           context: .
           push: true
           target: prod
-          provenance: false
           cache-from: type=local,src=cache
           tags: ghcr.io/${{ github.repository }}:${{ github.event.release.tag_name }}
 
@@ -101,7 +99,6 @@ jobs:
           context: .
           push: false
           load: true
-          provenance: false
           tags: ghcr.io/${{ github.repository }}:pr-${{ github.event.pull_request.number }}
 
       - name: Build PR Image
@@ -110,7 +107,6 @@ jobs:
         with:
           context: .
           push: true
-          provenance: false
           tags: ghcr.io/${{ github.repository }}:pr-${{ github.event.pull_request.number }}
 
       - name: Delete PR Image
